@@ -1,3 +1,5 @@
+const { RealNumber } = require("./realNumber");
+
 class ImaginaryNumber {
   #number; 
 
@@ -14,8 +16,17 @@ class ImaginaryNumber {
     return new ImaginaryNumber(sum);
   }
 
+  multiplyImaginary(other) {
+    return this.#number.multiply(other.#number).multiply(new RealNumber(-1));
+  }
+
+  multiplyReal(other) {
+    const product = other.multiply(this.#number);
+    return new ImaginaryNumber(product);
+  }
+  
   areEqual(other) {
-    return this.#number == other.#number; 
+    return this.#number.areEqual(other.#number); 
   }
 }
 

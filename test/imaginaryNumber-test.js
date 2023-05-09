@@ -61,18 +61,63 @@ describe("Testing imaginary : ", function () {
     });
   });
 
-  describe('', function() {
+  describe("Testing add() ", function () {
     it("should add two imaginary number", function () {
       const four = new RealNumber(4);
       const i1 = new ImaginaryNumber(four);
       const i2 = new ImaginaryNumber(four);
-  
+
       const eight = new RealNumber(8);
       const expected = new ImaginaryNumber(eight);
-  
       const actual = i1.add(i2);
+
       const result = expected.areEqual(actual);
       ok(i1.areEqual(i2));
     });
-   });
+
+    it("should substract two imaginary number", function () {
+      const four = new RealNumber(4);
+      const i1 = new ImaginaryNumber(four);
+
+      const negitiveFive = new RealNumber(-5);
+      const i2 = new ImaginaryNumber(negitiveFive);
+
+      const negitiveOne = new RealNumber(-1);
+      const expected = new ImaginaryNumber(negitiveOne);
+      const actual = i1.add(i2);
+
+      const result = expected.areEqual(actual);      
+      ok(result);
+    });
+  });
+
+  describe('Testing multiplyImaginary()', function() {
+    it('should give a real number when two imaginary numbers are multiplied', function() {
+      const four = new RealNumber(4)
+      const i1 = new ImaginaryNumber(four);
+
+      const five = new RealNumber(5);
+      const i2 = new ImaginaryNumber(five);
+
+      const expected = new RealNumber(-20);
+      const actual = i1.multiplyImaginary(i2);
+      
+      const result = expected.areEqual(actual);
+      ok(result);
+    });
+
+    it('should give a imaginary number when a real and a imaginary numbers are multiplied', function() {
+      const four = new RealNumber(4)
+      const i1 = new ImaginaryNumber(four);
+
+      const five = new RealNumber(5);
+
+      const twenty = new RealNumber(20);
+      const expected = new ImaginaryNumber(twenty)
+      const actual = i1.multiplyReal(five);
+
+      const result = actual.areEqual(expected);
+      ok(result);
+    });
+  });
 });
