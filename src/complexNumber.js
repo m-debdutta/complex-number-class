@@ -47,4 +47,4 @@ class ComplexNumber {
   }
 }
 
-exports.ComplexNumber = ComplexNumber; 
+exports.ComplexNumber = ComplexNumber;

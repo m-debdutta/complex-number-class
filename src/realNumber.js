@@ -1,24 +1,26 @@
 class RealNumber {
-  #real; 
+  #number;  
 
-  constructor(real) {
-    this.#real = real; 
+  constructor(number) {
+    this.#number = number; 
   }
 
-  getReal() {
-    return new RealNumber(this.#real); 
+  add(other) {
+    const sum = this.#number + other.#number; 
+    return new RealNumber(sum); 
+  }
+
+  multiply(other) {
+    const product = this.#number * other.#number; 
+    return new RealNumber(product);
+  }
+
+  areEqual(other) {
+    return this.#number === other.#number; 
   }
 
   toString() {
-    return this.#real.toString(); 
-  }
-
-  add(otherNumber) {
-    return this.#real + otherNumber.#real; 
-  }
-
-  multiply(otherNumber) {
-    return this.#real * otherNumber.#real; 
+    return this.#number.toString(); 
   }
 }
 

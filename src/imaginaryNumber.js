@@ -1,12 +1,21 @@
 class ImaginaryNumber {
-  #imaginary; 
+  #number; 
 
-  constructor(imaginary) {
-    this.#imaginary = imaginary; 
+  constructor(number) {
+    this.#number = number; 
   }
 
   toString() {
-    return this.#imaginary.toString() + 'i'
+    return this.#number.toString() + 'i'; 
+  }
+
+  add(other) {
+    const sum = this.#number.add(other.#number); 
+    return new ImaginaryNumber(sum);
+  }
+
+  areEqual(other) {
+    return this.#number == other.#number; 
   }
 }
 
