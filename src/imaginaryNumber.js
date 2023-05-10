@@ -1,37 +1,37 @@
 const { RealNumber } = require("./realNumber");
 
 class ImaginaryNumber {
-  #number; 
+  #value; 
 
   constructor(number) {
-    this.#number = number; 
-  }
+    this.#value = number; 
+  };
 
   toString() {
-    return this.#number.toString() + 'i'; 
-  }
+    return this.#value.toString() + 'i'; 
+  };
 
   add(other) {
-    const sum = this.#number.add(other.#number); 
+    const sum = this.#value.add(other.#value); 
     return new ImaginaryNumber(sum);
-  }
+  };
 
   multiplyImaginary(other) {
-    return this.#number.multiply(other.#number).multiply(new RealNumber(-1));
-  }
+    return this.#value.multiply(other.#value).multiply(new RealNumber(-1));
+  };
 
   multiplyReal(other) {
-    const product = other.multiply(this.#number);
+    const product = other.multiply(this.#value);
     return new ImaginaryNumber(product);
-  }
+  };
   
-  isNegitive() {
-    return this.#number.isNegitive(); 
-  }
+  isNegative() {
+    return this.#value.isNegative(); 
+  };
   
   areEqual(other) {
-    return this.#number.areEqual(other.#number); 
-  }
-}
+    return this.#value.areEqual(other.#value); 
+  };
+};
 
 exports.ImaginaryNumber = ImaginaryNumber; 

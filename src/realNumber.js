@@ -1,31 +1,31 @@
 class RealNumber {
-  #number;  
+  #value;  
 
   constructor(number) {
-    this.#number = number; 
-  }
+    this.#value = number; 
+  };
 
   add(other) {
-    const sum = this.#number + other.#number; 
+    const sum = this.#value + other.#value; 
     return new RealNumber(sum); 
-  }
+  };
 
   multiply(other) {
-    const product = this.#number * other.#number; 
+    const product = this.#value * other.#value; 
     return new RealNumber(product);
-  }
+  };
 
   areEqual(other) {
-    return this.#number === other.#number; 
-  }
+    return this.#value === other.#value; 
+  };
 
-  isNegitive() {
-    return this.#number < 0;
-  }
+  isNegative() {
+    return this.#value < 0;
+  };
 
   toString() {
-    return this.#number.toString(); 
-  }
-}
+    return this.#value.toString(); 
+  };
+};
 
 exports.RealNumber = RealNumber; 

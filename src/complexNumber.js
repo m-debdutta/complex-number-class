@@ -5,18 +5,14 @@ class ComplexNumber {
   constructor(real, imaginary) {
     this.#real = real; 
     this.#imaginary = imaginary; 
-  }
-
-  #sign() {
-    return this.#imaginary > 0 ? ' + ' : ' - '; 
-  }
+  };
 
   add(other) {
     const realPart = this.#real.add(other.#real); 
     const imaginaryPart = this.#imaginary.add(other.#imaginary); 
 
     return new ComplexNumber(realPart, imaginaryPart); 
-  }
+  };
 
   multiply(other) {
     const r1Xr2 = this.#real.multiply(other.#real); 
@@ -28,19 +24,22 @@ class ComplexNumber {
     const imaginaryPart = i1Xr2.add(r1Xi2);
 
     return new ComplexNumber(realPart, imaginaryPart); 
-  }
+  };
 
   toString() {
     const realPart = this.#real.toString();  
-    const sign = this.#imaginary.isNegitive() ? '' : '+'; 
     const imaginaryPart = this.#imaginary.toString(); 
+    const sign = this.#imaginary.isNegative() ? '' : '+'; 
 
     return realPart + sign + imaginaryPart;  
-  }
+  };
 
   areEqual(other) {
-    return this.#real.areEqual(other.#real) && this.#imaginary.areEqual(other.#imaginary);
-  }
-}
+    const isRealPartEqual = this.#real.areEqual(other.#real);
+    const isImaginaryPartEqual = this.#imaginary.areEqual(other.#imaginary);
+
+    return isRealPartEqual && isImaginaryPartEqual;
+  };
+};
 
 exports.ComplexNumber = ComplexNumber;
