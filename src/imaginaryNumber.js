@@ -25,6 +25,10 @@ class ImaginaryNumber {
     return new ImaginaryNumber(product);
   }
   
+  isNegitive() {
+    return this.#number.isNegitive(); 
+  }
+  
   areEqual(other) {
     return this.#number.areEqual(other.#number); 
   }

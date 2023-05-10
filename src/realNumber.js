@@ -19,6 +19,10 @@ class RealNumber {
     return this.#number === other.#number; 
   }
 
+  isNegitive() {
+    return this.#number < 0;
+  }
+
   toString() {
     return this.#number.toString(); 
   }

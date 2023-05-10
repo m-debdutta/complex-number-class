@@ -120,4 +120,21 @@ describe("Testing imaginary : ", function () {
       ok(result);
     });
   });
+  describe('Testing isNegitive()', function() {
+    it('imaginary number of negitive value is a negitive imaginary number', function() {
+      const minusFour = new RealNumber(-4);
+      const i = new ImaginaryNumber(minusFour);
+      const result = i.isNegitive();
+
+      ok(result);
+    });
+    
+    it('imaginary number of positive value is a positive imaginary number', function() {
+      const four = new RealNumber(4);
+      const i = new ImaginaryNumber(four);
+      const result = i.isNegitive();
+
+      strictEqual(result, false);
+    });
+  });
 });

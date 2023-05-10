@@ -24,18 +24,22 @@ class ComplexNumber {
     const i1Xr2 = this.#imaginary.multiplyReal(other.#real); 
     const r1Xi2 = other.#imaginary.multiplyReal(this.#real); 
 
-    const realPart =  r1Xr2 + i1Xi2;
-    const imaginaryPart = i1Xr2 + r1Xi2;
+    const realPart =  r1Xr2.add(i1Xi2);
+    const imaginaryPart = i1Xr2.add(r1Xi2);
 
     return new ComplexNumber(realPart, imaginaryPart); 
   }
 
   toString() {
-    const realPart = this.#real.toString(); 
-    const sign = this.#sign(); 
-    const imaginaryPart = Math.abs(this.#imaginary).toString() + 'i'; 
+    const realPart = this.#real.toString();  
+    const sign = this.#imaginary.isNegitive() ? '' : '+'; 
+    const imaginaryPart = this.#imaginary.toString(); 
 
     return realPart + sign + imaginaryPart;  
+  }
+
+  areEqual(other) {
+    return this.#real.areEqual(other.#real) && this.#imaginary.areEqual(other.#imaginary);
   }
 }
 

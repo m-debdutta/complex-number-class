@@ -1,5 +1,5 @@
 const {describe, it} = require('node:test'); 
-const {strictEqual} = require('assert'); 
+const {ok, strictEqual} = require('assert'); 
 
 const {RealNumber} = require('../src/realNumber.js'); 
 describe('Testing RealNumber: ', function() {
@@ -43,6 +43,28 @@ describe('Testing RealNumber: ', function() {
     const expected = '12'; 
 
     strictEqual(actual, expected); 
-  }); 
-})
+  });
+  
+  describe('Testing isNegitive() ', function() {
+    it('minus-four is a negitive', function() {
+      const minusFour = new RealNumber(-4);    
+      const actual = minusFour.isNegitive();
 
+      strictEqual(actual, true);
+    });
+
+    it('four is not a negitive number', function() {
+      const four = new RealNumber(4);    
+      const actual = four.isNegitive();
+
+      strictEqual(actual, false);
+    });
+
+    it('zero is not a negitive number', function() {
+      const zero = new RealNumber(0);    
+      const actual = zero.isNegitive();
+
+      strictEqual(actual, false);
+    });
+  });
+});
